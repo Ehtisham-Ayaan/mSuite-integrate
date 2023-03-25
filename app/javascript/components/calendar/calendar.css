@@ -1,0 +1,23 @@
+#calendar{
+    height:90vh;
+  }
+  #options{
+    padding: 6px 1px 1px 1px;
+    background-color:MediumSeaGreen;
+    float: left;
+  }
+  .material-icons{
+    cursor: pointer;
+  }
+  .popover{
+    width: 45vh;
+  }
+  .toastui-calendar-see-more {
+    height: 20vh !important;
+  }
+  .toastui-calendar-see-more-header{
+    padding: 12px 10px 0px !important;
+  }
+.font-18{
+  font-size: 20px !important;
+}

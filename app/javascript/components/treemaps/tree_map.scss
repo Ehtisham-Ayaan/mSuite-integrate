@@ -1,0 +1,79 @@
+.size-color-picker {
+  width: 20vw !important;
+}
+.jqx-widget{
+  width: 100% !important;
+}
+
+.jqx-treemap-rectangle {
+  border: 1px solid gray !important;
+  padding: 2px !important;
+  margin-left: 5px !important;
+}
+.jqx-treemap-label, .jqx-treemap-rectangle span {
+  margin-top: 16px;
+  min-width: 5%;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.jqx-treemap-rectangle-parent > .jqx-treemap-label{
+  font-weight: 470;
+}
+
+.focus-visible {
+  padding: 2px 5px;
+  border: 1px solid gray;
+  background-color: white;
+  color: black;
+  outline: unset;
+  border-radius: 7px;
+  text-align: left !important;
+  z-index: 100;
+}
+
+.cancel-btn{
+  width: 20px;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+}
+
+.vc-chrome{
+  position: inherit;
+  padding: 0px;
+  width: 100% !important;
+}
+.card-position {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.border-none {
+  border: none;
+  border-radius: 0px;
+}
+.pointer {
+  cursor: pointer !important
+}
+.color-white{
+  color: white;
+}
+.input-field {
+  border-radius: 5px;
+}
+.svg-inline--fa, .fa-plus {
+  height: 1.1em;
+  width: 1.6em !important;
+}
+.mt-6 {
+  margin-top: 4rem !important
+}
+.main_body {
+  height: 100vh;
+  background:  #fff;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

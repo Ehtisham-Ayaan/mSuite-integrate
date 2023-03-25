@@ -1,0 +1,61 @@
+
+title = "mSuite" + (content_for?(:title) ? " | " + yield(:title) : "")
+=favicon_link_tag asset_path("favicon.ico")
+meta http-equiv="x-ua-compatible" content="ie=edge"
+meta content="width=device-width, initial-scale=1.0" name="viewport" id="viewport"
+= csrf_meta_tags
+= action_cable_meta_tag
+
+
+/* CSS */
+// Add conditional classes before loading css
+link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" crossorigin="anonymous" /
+link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous"/
+link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/
+link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.21.2/bootstrap-vue.css" integrity="sha512-IULYRc2oqPYYv/YfLVAx2BfIF3UGFXhOtTyjYx4E/DsMa4QlDUozuCvhdIsssJbI8IB5NgeErtMQ1zJnPyyJ7g==" crossorigin="anonymous" referrerpolicy="no-referrer" /
+link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" crossorigin="anonymous"/
+
+javascript:
+  // Check if is Internet Explorer (documentMode is an IE only property)
+  (function () { if (document.documentMode) { document.documentElement.className += " is-ie"; } }());
+  // Set the Rails environment
+  (function () { window.rails_environment = "#{Rails.env}" }());
+= stylesheet_link_tag 'application', media: 'all'
+
+
+/* 3rd Party Javascript */
+// Load minified Vue for production, and unminified for development
+- if Rails.env.development?
+  script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"
+- else
+  script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js"
+script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.min.js"
+script src="https://cdn.jsdelivr.net/npm/moment"
+script src="https://kit.fontawesome.com/4ba2ff2fc3.js" crossorigin="anonymous"
+/ script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"
+script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"
+script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.21.2/bootstrap-vue.min.js" integrity="sha512-Z0dNfC81uEXC2iTTXtE0rM18I3ATkwn1m8Lxe0onw/uPEEkCmVZd+H8GTeYGkAZv50yvoSR5N3hoy/Do2hNSkw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+
+script src="https://github.highcharts.com/master/highcharts.js"
+script src="https://raw.githubusercontent.com/blacklabel/custom_events/master/js/customEvents.js"
+script src="https://code.highcharts.com/modules/exporting.js"
+
+// TODO: Move to footer (not needed in header and no need to block loading)
+// TODO: Also handle this all asyncronously, and conditionally add mutation shim
+= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css', media: 'all', crossorigin: "anonymous"
+script src="//cdn.jsdelivr.net/npm/mutationobserver-shim/dist/mutationobserver.min.js"
+script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"
+
+// For offine development
+- if Rails.env.development?
+  javascript:
+    if (!navigator.onLine) {
+      document.write("<script src='/vue.js'><\/script>");
+      document.write("<script src='/vue-router.js'><\/script>");
+      document.write("<script src='/vuex.js'><\/script>");
+    }
+
+/* Custom Javascript */
+= javascript_include_tag 'application'
